@@ -3,11 +3,15 @@ package ball.model;
  *  Class that defines a point in 2D
  **/
 
+import ball.Observer;
+import java.util.ArrayList;
+
 public class Ball
 {
    protected int x;
    protected int y;
    protected int diameter = 50;
+   protected ArrayList<Observer> observers = new ArrayList<>();
 
    public Ball()
    {
@@ -50,10 +54,22 @@ public class Ball
    {
       this.x+=xDistance;
       this.y+=yDistance;
+      notifyObservers();
    }
 
    public void adjustSize(int amount)
    {
       this.diameter+=amount;
+      notifyObservers();
+   }
+
+   public void register(Observer observer) {
+      observers.add(observer);
+   }
+
+   public void notifyObservers() {
+      for (Observer o: observers) {
+         o.update();
+      }
    }
 }

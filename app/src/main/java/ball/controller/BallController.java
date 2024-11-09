@@ -33,24 +33,25 @@ public class BallController implements KeyListener
       {
          //TODO: Move the ball 5 pixels in the x direction
          System.out.println("User wants to move right");
+         ball.move(5, 0);
       }
       else if (e.getKeyCode() == KeyEvent.VK_LEFT)
       {
          //TODO: Move the ball -5 pixels in the x direction
          System.out.println("User wants to move left");
-
+         ball.move(-5, 0);
       }
       else if (e.getKeyCode() == KeyEvent.VK_UP)
       {
          //TODO: Move the ball -5 pixels in the y direction
          System.out.println("User wants to move up");
-
+         ball.move(0, -5);
       }
       else if (e.getKeyCode() == KeyEvent.VK_DOWN)
       {
          //TODO: Move the ball 5 pixels in the y direction
          System.out.println("User wants to move down");
-
+         ball.move(0, 5);
       }
 
    }
