@@ -3,9 +3,10 @@ package ball.view;
 import javax.swing.*;
 import java.awt.*;
 
+import ball.Observer;
 import ball.model.Ball;
 
-public class BallDrawing extends JPanel implements Icon
+public class BallDrawing extends JPanel implements Icon, Observer
 {
    int height;
    int width;
@@ -18,6 +19,7 @@ public class BallDrawing extends JPanel implements Icon
       JLabel imageLabel = new JLabel(this);
       this.add(imageLabel);
       this.ball = ball;
+      this.ball.register(this);
    }
 
    public void update()
